@@ -1,6 +1,66 @@
 @ProductCatalogApi_HostAddress = http://localhost:5108
 
-GET {{ProductCatalogApi_HostAddress}}/weatherforecast/
+### Get all products
+GET {{ProductCatalogApi_HostAddress}}/api/Product
+Accept: application/json
+
+###
+
+### Get product by ID
+GET {{ProductCatalogApi_HostAddress}}/api/Product/1
+Accept: application/json
+
+###
+
+### Create a new product
+POST {{ProductCatalogApi_HostAddress}}/api/Product
+Content-Type: application/json
+
+{
+  "name": "Gaming Laptop",
+  "price": 1299.99,
+  "stockQuantity": 10
+}
+
+###
+
+### Update a product
+PUT {{ProductCatalogApi_HostAddress}}/api/Product/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Gaming Laptop Pro",
+  "price": 1499.99,
+  "stockQuantity": 8
+}
+
+###
+
+### Delete a product
+DELETE {{ProductCatalogApi_HostAddress}}/api/Product/1
+
+###
+
+### Place an order
+POST {{ProductCatalogApi_HostAddress}}/api/Order/PlaceOrder
+Content-Type: application/json
+
+{
+  "customerName": "John Doe",
+  "productId": 1
+}
+
+###
+
+### Get all orders
+GET {{ProductCatalogApi_HostAddress}}/api/Order
+Accept: application/json
+
+###
+
+### Get order by ID
+GET {{ProductCatalogApi_HostAddress}}/api/Order/1
 Accept: application/json
 
 ###

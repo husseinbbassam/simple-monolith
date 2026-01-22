@@ -20,6 +20,10 @@ public class OrderController : ControllerBase
     [HttpPost("PlaceOrder")]
     public async Task<ActionResult<Order>> PlaceOrder(PlaceOrderRequest request)
     {
+        // NOTE: This implementation has a known race condition for concurrent orders.
+        // In a production system, use optimistic concurrency (RowVersion) or pessimistic locking.
+        // For learning purposes, this simple approach demonstrates the basic flow.
+        
         // 1. Check if the product exists
         var product = await _context.Products.FindAsync(request.ProductId);
         if (product == null)
